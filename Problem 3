@@ -1,0 +1,36 @@
+public class Problem3 {
+    
+    private static long largestNumber=0L;
+    private static long a = 600851475143L; //600851475143L is the number i want to work with
+    
+    
+    //Method for checking if a number is prime
+    public static void primeChecker (long num) {
+        boolean pCheck = true; //if value print is 1 then the number is prime
+        for (long i=2; i<num; i++){
+                    if (num%i==0) {
+                        pCheck = false;//no remainder means it's not prime 
+                        break;
+                    }
+                }
+        if (pCheck) {
+            System.out.println(num);
+        }
+    }
+    
+    
+     //Method for finding a prime number
+    public static void factorFinder (long num){
+        for (long i=2; i<=num/2; i++){
+            if (num%i==0) {
+                System.out.println(num +"%"+ i +"="+ num/i);
+                long temp = num / i;
+                primeChecker(temp);
+            }   
+        }
+    }
+  
+    public static void main (String[] args){
+        factorFinder(a);
+    }
+}
