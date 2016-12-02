@@ -1,9 +1,9 @@
 public class Problem4 {
 
-    static int rev;
-    static int largePal;
+    static int rev; //stores the reverse value of the number being tested
+    static int largePal; //stores the value largest palindrome
     
-    //method for reversing number
+    //Method for a reversing number. Based on code from a web page that Chaitanya Singh wrote.
     public static void reverse (int number) {
         int reverse = 0;
         while ( number != 0 ){
@@ -13,7 +13,7 @@ public class Problem4 {
         }
       rev=reverse;
     }
-    //methos for multiplying large sets of numbers in a particular order
+    //Method generating numbers by multiplying two numbers
     public static void multiply (int palNum) {
         for (int i=1; i<=palNum; i++) {
           for (int s=1; s<=palNum; s++) {
