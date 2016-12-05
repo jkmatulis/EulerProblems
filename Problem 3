@@ -9,7 +9,7 @@ public class Problem3 {
     
     //Method for checking if a number is prime
     public static void primeChecker (long num) {
-        boolean pCheck = true; //if value print is 1 then the number is prime
+        boolean pCheck = true; //if the value remains true then the number is prime
         for (long i=2; i<num; i++){
                     if (num%i==0) {
                         pCheck = false;//no remainder means it's not prime 
