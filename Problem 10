@@ -1,0 +1,26 @@
+/**
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million.
+ */
+//This code took 10mins and 23sec to find an answer. I'm going to figure out how to get this to work in less then a minute.
+public class Problem10 {
+ public static long totalSum;
+    public static void primeChecker (long num) {
+        boolean pCheck = true; //if the value remains true then the number is prime
+        for (int i=2; i<num; i++){
+                    if (num%i==0) {
+                        pCheck = false;//no remainder means it's not prime 
+                        break;
+                    }
+                }
+        if (pCheck) {
+            totalSum=totalSum+num;
+        }
+    } 
+    public static void main(String[] args) {
+        for (long i=2; i<2000000; i++) {
+           primeChecker(i); 
+        }
+        System.out.println(totalSum);
+    }   
+}
