@@ -1,0 +1,65 @@
+/**
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million.
+
+I read about the Sieve of Erasthenes and came up with this program which is a huge improvement over the last one. This only takes 2sec
+to run vs the 8+ minutes that my old program took. It also helped that I looked up some examples of prime checking code. In learning
+to program I want to try my hand at coming up with a solution before looking up the optiumal code that solves my problem.
+ */
+ 
+public class Problem10 {
+    private static long total=0;
+    private static int genArray[];
+    
+    public static void genArray (int x) {
+        genArray = new int[x-1];
+        for (int s=2;s<=x;s++) {
+            genArray[s-2]=s;
+        } 
+    }
+    
+    public static void primeChecker (int num) {
+        boolean pCheck = true; //if the value remains true then the number is prime
+        
+        if (num==0 || num==1 || num%2==0) {
+            pCheck=false;
+        } 
+        if (num==2) {
+            pCheck=true;
+        }
+        for (int i=3; i*i<=num; i+=2){
+                    if (num%i==0) {
+                        pCheck = false;//no remainder means it's not prime
+                        break;
+                    }
+        }
+        // if the number is prime this will take all numbers divisible by that number a set them to 0
+        if (pCheck) {
+           numZero(num); 
+        }
+    }
+    
+    public static void numZero (int num) {
+       for (int s=num; s<=genArray.length-1; s++) {
+                if (num==0) {
+                    break;
+                }
+                if (genArray[s]%num==0 || genArray[s]==4) {
+                    genArray[s]=0;
+                }
+        }
+    }
+    
+    public static void main(String[] args) {
+        genArray(2000000);
+        
+        for (int i=0; i*i<=genArray.length; i++){
+            primeChecker(genArray[i]);
+        }
+       
+        for (int i=0; i<=genArray.length-1; i++){
+            total= total + genArray[i]; 
+        }
+        System.out.println(total);
+    }
+}
