@@ -1,41 +1,36 @@
 /*
-A palindromic number reads the same both ways. The largest palindrome made 
-from the product of two 2-digit numbers is 9009 = 91 × 99.
-
+A palindromic number reads the same both ways. The largest palindrome made from
+the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
-
 public class Problem4 {
-
-    static int rev; //stores the reverse value of the number being tested
-    static int largePal; //stores the value largest palindrome
-    
     //Method for a reversing number. Based on code from a web page that Chaitanya Singh wrote.
-    public static void reverse (int number) {
+    public static int reverse (int number) {
         int reverse = 0;
         while ( number != 0 ){
-          reverse = reverse * 10;
-          reverse = reverse + number%10;
-          number = number/10;
+            reverse = reverse * 10;
+            reverse = reverse + number%10;
+            number = number/10;
         }
-      rev=reverse;
+        return reverse;
     }
-    //Method generating numbers by multiplying two numbers
-    public static void multiply (int palNum) {
+    
+    //Method for generating numbers by multiplying two numbers
+    public static int multiplyTwoNumbers (int palNum) {
+        int largePal=0; //stores the value largest palindrome
         for (int i=1; i<=palNum; i++) {
-          for (int s=1; s<=palNum; s++) {
-          int temp = i * s;
-          reverse (temp);
-          if (temp==rev && rev>largePal) {
-              largePal=rev;
-              break;
-          }
-          }
+            for (int s=1; s<=palNum; s++) {
+                int temp = i * s;
+                int rev = reverse (temp);
+                if (temp==rev && rev>largePal) { //checks if the number is a palindrome and if its larger then the last
+                    largePal=rev;
+                }
+            }
         }
+        return largePal;
     }
  
     public static void main(String[] args) {
-         multiply(999);
-         System.out.println(largePal); 
+        System.out.println(multiplyTwoNumbers(999)); 
     }
 }
