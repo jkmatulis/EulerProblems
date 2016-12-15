@@ -15,13 +15,14 @@ public class Problem3 {
                         pCheck = false;//no remainder means it's not prime 
                         break;
                     }
-                }
+        }
+        //stores the largest number it is prime and larger then the previous value
         if (pCheck && num>largestNumber) {
             largestNumber=num;
         }
     }
     
-     //Method for finding a prime number
+    //Method for finding a prime number
     public static void factorFinder (long num){
         for (long i=2; i<=num/2; i++){
             if (num%i==0) {
