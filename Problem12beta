@@ -35,7 +35,7 @@ public class Problem12 {
         return sequenceTotal;
     }
     
-    public static boolean primeFinder (long number, long limit) {
+    public static boolean divisorFinder (long number, long limit) {
         int divisorCounter = 0;
         for (long i=1; i<=number/2; i++) {
             if (number % i == 0) {
@@ -52,7 +52,7 @@ public class Problem12 {
     public static void main(String[] args) {
         boolean stopCondition = true;
         for (long i=1; stopCondition; i++) {
-            stopCondition = primeFinder(triangleNumber(i),500); 
+            stopCondition = divisorFinder(triangleNumber(i),500); 
         }
         
     }
