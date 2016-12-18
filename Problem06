@@ -11,7 +11,7 @@ private static int squareSums;
 
 public static int sumSquares (int x) {
     for (int i=1; i<=x; i++){
-        sumSquare = sumSquare + (i*i);
+        sumSquare = sumSquare + (i * i);
     }
     return sumSquare;
 }
@@ -19,12 +19,12 @@ public static int sumSquares (int x) {
 public static int squareSums (int x) {
     int add=0;
     for (int i=1; i<=x; i++) {
-        add = add +i; 
+        add = add + i; 
     }
     squareSums = add * add;
     return squareSums;
 }
 
     public static void main(String[] args) {
-        System.out.println(squareSums(100)-sumSquares(100));
+        System.out.println(squareSums(100) - sumSquares(100));
     }
