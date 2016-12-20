@@ -1,5 +1,3 @@
-package problem.pkg8;
-
 /**
 The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
 
@@ -51,24 +49,25 @@ private static int[] bigNumber = {
 7,1,6,3,6,2,6,9,5,6,1,8,8,2,6,7,0,4,2,8,2,5,2,4,8,3,6,0,0,8,2,3,2,5,7,5,3,0,4,2,0,7,5,2,9,6,3,4,5,0,
 };
 
-public static void multi () {
+//For the values in the above array this finds the largest product within a given range of numbers
+public static long multiplyNumberSequence (int range) {
     int i=0;
-    long large=1;
-    for (i=0; i<=987/*maybe less*/; i++) {
-        for (int x=i; x<=(i+12); x++) {
-            large = bigNumber[x] * large;
+    long Product=1;
+    for (i=0; i<=bigNumber.length-range; i++) {
+        for (int x=i; x<=i+(range-1); x++) {
+            Product = bigNumber[x] * Product;
             }
-        if (large>largestValue) {
-                largestValue=large;
+        if (Product>largestValue) {
+                largestValue=Product;
                 
         }
-        large = 1;
+        Product = 1;
     }
+    return largestValue;
 }
 
     public static void main(String[] args) {
-        multi();
-        System.out.println("The largest value is: "+largestValue);
+        System.out.println("The largest value is: "+multiplyNumberSequence(13));
     }
     
 }
