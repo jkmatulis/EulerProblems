@@ -1,0 +1,40 @@
+package problem15;
+import java.math.BigInteger;
+import java.util.Scanner;
+/*
+Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, 
+there are exactly 6 routes to the bottom right corner.
+How many such routes are there through a 20×20 grid?
+ */
+
+public class Problem15 {
+    //a factorial calculator that returns the value as a BigInteger
+    public static BigInteger factorial(int number) {
+        BigInteger returnNumber = BigInteger.ONE;
+        for (int i=1; i<=number; i++) {
+            returnNumber = returnNumber.multiply(BigInteger.valueOf(i));
+        }
+        return returnNumber;
+    }
+    // formula 2n!/n!*n!
+    public static BigInteger binomialCoefficient (int number) {
+        BigInteger dividend = BigInteger.ONE;
+        BigInteger divisor = BigInteger.ONE;
+        BigInteger answer = BigInteger.ONE;
+        
+        dividend = factorial(number*2);
+        divisor = factorial(number);
+        divisor = divisor.multiply(divisor);
+        answer = dividend.divide(divisor);
+        
+        return answer;
+    }
+    
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int n = reader.nextInt();
+        System.out.println(binomialCoefficient(n));
+    }
+    
+}
